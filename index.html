@@ -1,0 +1,101 @@
+<!--
+    Autor: LF
+    Ref: DIG/IT 3
+    Erstellungsdatum: 22.08.2024
+    Änderungsdatum: 23.08.2024
+-->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKK Berater</title>
+    <!-- Link zur Google-Schriftart "Outfit" -->
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" 
+        rel="stylesheet"
+    >
+    <!-- Link zu FontAwesome für Icons -->
+    <link 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+        rel="stylesheet"
+    >
+    <!-- Link zur externen CSS-Datei -->
+    <link 
+        rel="stylesheet" 
+        href="assets/css/styles.css"
+    >
+</head>
+<body>
+
+    <header>
+        <img 
+            src="./images/ikk-white-logo.png" 
+            alt="ikk-white-logo"
+        >
+    </header>
+
+    <!-- Haupttitel und Untertitel -->
+    <div class="title">
+        <p class="big-title">Finden Sie Ihren persönlichen Berater</p>
+        <p class="subtitle">Klicken Sie auf ein Profil, um das Telefonat zu starten</p>
+    </div>
+
+    <div class="container">
+        <a href="sip:markus.bender@ikk-sw.de" class="card online">
+            <div class="status"></div>
+            <img 
+                src="images/MB.png" 
+                alt="Markus Bender"
+            >
+            <div class="overlay">
+                <i class="fas fa-phone"></i>
+            </div>
+            <p>Markus Bender</p>
+        </a>
+        <a href="sip:thomas.schaefer@ikk-sw.de" class="card online">
+            <div class="status"></div>
+            <img 
+                src="images/TS.png" 
+                alt="Thomas Schaefer"
+            >
+            <div class="overlay">
+                <i class="fas fa-phone"></i>
+            </div>
+            <p>Thomas Schaefer</p>
+        </a>
+        <a href="#" class="card offline" data-email="leonnel.fonkwe@ikk-sw.de">
+            <div class="status"></div>
+            <img 
+                src="images/LF.png" 
+                alt="Leonnel Fonkwe"
+            >
+            <div class="overlay">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <p>Leonnel Fonkwe</p>
+        </a>
+    </div>
+
+    <!-- Cisco-Logo unterhalb der Karten -->
+    <img src="images/ciscologo.png" alt="Cisco Logo" class="cisco-logo">
+
+    <footer>
+        <p>&copy; 2024 IKK Südwest  |  DIG/IT - v.1.0</p>
+    </footer>
+
+    <!-- Popup-HTML -->
+    <div id="popup" class="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <p>Dieser Berater ist momentan nicht verfügbar. Klicken Sie hier, um ihm eine E-Mail zu senden:</p>
+        <a id="popup-email-link" href="#" target="_blank">
+            <button> <i class="fas fa-envelope"></i> Email senden</button>
+        </a>
+    </div>
+
+    <!-- Link zur externen JS-Datei -->
+    <script src="./assets/js/scripts.js"></script>
+
+</body>
+</html>

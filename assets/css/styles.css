@@ -1,0 +1,201 @@
+/* 
+   Autor: LF 
+   Ref: DIG/IT 3 
+   Erstellungsdatum: 22.08.2024 
+   Änderungsdatum: 23.08.2024
+   Version: 1.0
+*/
+
+body {
+    font-family: 'Outfit', sans-serif !important;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+   background-image: linear-gradient(
+  125deg,
+  hsl(198deg 100% 45%) 0%,
+  hsl(209deg 100% 34%) 77%,
+  hsl(220deg 100% 24%) 100%
+);
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+header img {
+    height: 75px;
+    width: auto;
+}
+
+.title {
+    text-align: center;
+    margin: 5px 0;
+    margin-top: 100px;
+}
+
+.title .big-title {
+    font-size: 35px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.title .subtitle {
+    font-size: 18px;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Zentriert die Elemente horizontal */
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+    gap: 50px; /* Fügt Abstand zwischen den Karten hinzu */
+    position: relative; /* Für die Positionierung des Cisco-Logos */
+}
+
+.card {
+    position: relative; /* Erforderlich für die Positionierung des Statusindikators */
+    text-align: center;
+    width: 200px;
+    overflow: hidden; /* Verhindert das Überlaufen von Bild und Overlay */
+    cursor: pointer; /* Zeigt einen Zeiger-Cursor an, um anzuzeigen, dass es klickbar ist */
+}
+
+.card img {
+    border-radius: 50%;
+    border: 10px solid rgba(255, 255, 255, 0.1);
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease, border 0.6s ease; /* Sanfte Übergänge für Skalierung und Rahmen */
+}
+
+.card .status {
+    position: relative;
+    bottom: -45px;
+    right: -147px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #FA6060;
+    transform: translate(50%, 50%);
+}
+
+.card.online .status {
+    background-color: #17D317; /* Farbe für den Online-Status */
+}
+
+.card.offline .status {
+    background-color: #FA6060; /* Farbe für den Offline-Status */
+}
+
+.card .overlay {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 172px;
+    height: 172px;
+    background-color: rgba(23, 211, 23, 0.7); /* Standard grünes Overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+}
+
+.card.offline .overlay {
+    background-color: rgba(250, 96, 96, 0.7); /* Rotes Overlay für Offline */
+}
+
+.card .overlay i {
+    font-size: 30px;
+    color: white;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+.card:hover img {
+    transform: scale(1.15); /* Bild auf 186px vergrößern */
+}
+
+.card p, a.card {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.card p:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+	border-top: 1px solid rgb(255 255 255 / 5%);
+}
+
+/* Stile für das Popup */
+.popup {
+    display: none; /* Standardmäßig versteckt */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.popup.visible {
+    display: block; /* Popup anzeigen, wenn es sichtbar ist */
+}
+
+.popup button {
+    font-family: 'Outfit', sans-serif !important;
+    background: #17D317;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.popup button:hover {
+    background: #0a9d08;
+}
+
+.popup .close {
+    position: absolute;
+    top: -25px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 40px;
+    color: #999;
+}
+
+/* Stile für das Cisco-Logo */
+.cisco-logo {
+    position: relative;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.3;
+    width: 86px; /* Größe nach Bedarf anpassen */
+    height: auto;
+}
